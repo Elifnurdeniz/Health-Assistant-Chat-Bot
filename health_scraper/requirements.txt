@@ -1,0 +1,7 @@
+scrapy
+requests
+openai
+upstash_vector
+python-dotenv
+langchain
+uuid

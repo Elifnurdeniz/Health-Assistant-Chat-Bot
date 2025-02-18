@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  collect_links:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: health-scraper-collect-links
+    volumes:
+      - ./data:/app/data
+    command: ["scrapy", "crawl", "collect_links"]
+
+  fetch_content:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: health-scraper-fetch-content
+    environment:
+      - UPSTASH_VECTOR_REST_URL=${UPSTASH_VECTOR_REST_URL}
+      - UPSTASH_VECTOR_REST_TOKEN=${UPSTASH_VECTOR_REST_TOKEN}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./data:/app/data
+    command: ["scrapy", "crawl", "get_content_and_store"]
