@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import React, { HTMLProps } from "react";
 
 export interface Props extends HTMLProps<SVGSVGElement> {

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { ComponentProps, forwardRef } from "react";
 import { IconSend } from "@tabler/icons-react";
 import cx from "@/utils/cx";
